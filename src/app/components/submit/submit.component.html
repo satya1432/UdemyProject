@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <h4>Parent Component</h4>
+  <!-- <div class="col-md-4 offset-md-2"> -->
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="firstName"> First Name</label>
+          <input type="text" class="form-control" placeholder="Enter your First Name" name="firstName"
+            [(ngModel)]="empdetails.firstName" #firstName="ngModel"
+            [ngClass]="{'is-invalid':f.submitted && firstName.invalid}" required />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="lastName">Last Name </label>
+          <input type="text" class="form-control" placeholder="Enter your Last Name" name="lastName"
+            [(ngModel)]="empdetails.lastName" #lastName="ngModel"
+            [ngClass]="{'is-invalid':f.submitted && lastName.invalid}" required />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" placeholder="Enter your Email" name="email"
+            [(ngModel)]="empdetails.email" #email="ngModel" [ngClass]="{'is-invalid':f.submitted && email.invalid}"
+            required />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="contactNumber">Contact Number</label>
+          <input type="text" class="form-control" placeholder="Enter your Contact Number" name="contactNumber"
+            [(ngModel)]="empdetails.contactNumber" #contactNumber="ngModel"
+            [ngClass]="{'is-invalid':f.submitted && contactNumber.invalid}" required />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group container pl-3">
+      <button type="Submit" class=" btn btn-primary form-control col-md-6">Submit</button>
+    </div>
+  </form>
+  <!-- </div> -->
+</div>
+<div *ngIf="submitData">
+  <div class="container-fluid child">
+    <app-empdetails [formData]="submitData" (closeView)="closeView($event)"></app-empdetails>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <div>
+    <h4>Reactive Forms</h4>
+    <form class="form-horizontal" [formGroup]="registerForm" (ngSubmit)="adduser()" novalidate>
+      <div class="form-group">
+        <label class="control-label col-md-2">Name</label>
+        <div class="col-md-10">
+          <input matInput class="form-control input-txt-start" placeholder="Enter Name" formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required" class="input-error-txt">Name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <div class="col-md-10">
+          <input type="email" matInput class="form-control input-txt-start" placeholder="Enter Email"
+            formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required" class="input-error-txt">Email is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">User Name</label>
+        <div class="col-md-10">
+          <input matInput class="form-control input-txt-start" placeholder="Enter User Name" formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required" class="input-error-txt">User Name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2">Password</label>
+        <div class="col-md-10">
+          <input matInput type="password" class="form-control input-txt-start" placeholder="Enter Password"
+            formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required" class="input-error-txt">Password is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-2"> </label>
+        <div class="col-md-10">
+          <div class="example-button-row">
+            <button mat-raised-button class="create-btn"> Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+    <h4>User Details(using json Pipe)</h4>
+    <div>{{registerForm.value | json}}</div>
+  </div>
+  <hr>
+  <div>
+    <h4>Template Driven Forms</h4>
+    <form name="form" (ngSubmit)="f.form.valid && createProduct()" #f="ngForm" novalidate>
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="name"> Product Name</label>
+            <input type="text" class="form-control" placeholder="Enter Product Name" name="name"
+              [(ngModel)]="productForm.name" #name="ngModel" [ngClass]="{'is-invalid':f.submitted && name.invalid}"
+              required />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="firstName"> Product Code</label>
+            <input type="text" class="form-control" placeholder="Enter Product Code" name="code"
+              [(ngModel)]="productForm.code" #code="ngModel" [ngClass]="{'is-invalid':f.submitted && code.invalid}"
+              required />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="quantity"> Product Quantity</label>
+            <input type="text" class="form-control" placeholder="Enter Product Quantity" name="quantity"
+              [(ngModel)]="productForm.quantity" #quantity="ngModel"
+              [ngClass]="{'is-invalid':f.submitted && quantity.invalid}" required />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="firstName"> Product Color</label>
+            <input type="text" class="form-control" placeholder="Enter Product Color" name="color"
+              [(ngModel)]="productForm.color" #color="ngModel" [ngClass]="{'is-invalid':f.submitted && color.invalid}"
+              required />
+          </div>
+        </div>
+      </div>
+      <div class="form-group container pl-3">
+        <button type="Submit" class=" btn btn-primary form-control col-md-6">Submit</button>
+      </div>
+    </form>
+    <h4>Product Details(using json Pipe)</h4>
+    <div>{{productForm | json}}</div>
+  </div>
+</div>

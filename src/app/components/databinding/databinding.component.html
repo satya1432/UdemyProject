@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <h4>Data Binding :</h4>
+
+  <p>Interpolation Data Binding =>{{countOfStudents}} =>Source to View</p>
+  <p>Event Data Binding =><button (click)="selectStudent('sunny')">Click </button> =>View to Source</p>
+  <p>Property Data Binding =><button [ngStyle]="{'background-color':button=='view'?'green':'red'}">Click </button>
+    =>Source to View</p>
+  <p>Two way Data Binding =><input name="" [(ngModel)]="button"> : {{button}}
+    =>Source to View & View to Source</p>
+</div>

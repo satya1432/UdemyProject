@@ -1,0 +1,21 @@
+<h4>Child Component</h4>
+<div class="container pt-5" [ngStyle]="{'background-color': bgColor}">
+  <div class="row">
+    Red : <input type="radio" name="color" value="red" [(ngModel)]="bgColor">
+    Green : <input type="radio" name="color" value="green" [(ngModel)]="bgColor">
+    blue : <input type="radio" name="color" value="skyblue" [(ngModel)]="bgColor">
+  </div>
+  <div class="row">
+    <label for="firstName"> First Name : </label>{{formData.firstName}}
+  </div>
+  <div class="row">
+    <label for="firstName"> Last Name : </label> {{formData.lastName}}
+  </div>
+  <div class="row">
+    <label for="firstName"> Email : </label>{{formData.email}}
+  </div>
+  <div class="row">
+    <label for="firstName"> Contact Number : </label>{{formData.contactNumber}}
+  </div>
+  <button (click)="CloseView()">Close</button>
+</div>
